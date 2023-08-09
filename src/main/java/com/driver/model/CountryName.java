@@ -7,16 +7,15 @@ public enum CountryName {
     CHI("004"),
     JPN("005");
 
-//    private final String code;
-//
-//    private CountryName(String s) {
-//        code = s;
-//    }
-//
-//    public String toCode() {
-//        return this.code;
-//    }
+    private final String code;
 
-    CountryName(String number) {
+    private CountryName(String s) {
+        code = s;
     }
+
+    public String toCode() {
+        return this.code;
+    }
+
+
 }

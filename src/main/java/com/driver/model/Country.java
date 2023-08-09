@@ -15,8 +15,10 @@ public class Country{
     @JoinColumn(name = "serviceProvider")
     private ServiceProvider serviceProvider;
 
-    public Country(CountryName countryName, String codes, User user, ServiceProvider serviceProvider) {
-        this.countryName = countryName;
+    public Country() {
+    }
+
+    public Country(String codes, User user, ServiceProvider serviceProvider) {
         this.codes = codes;
         this.user = user;
         this.serviceProvider = serviceProvider;
