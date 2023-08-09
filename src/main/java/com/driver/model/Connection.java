@@ -1,44 +1,27 @@
 package com.driver.model;
 
-import javax.persistence.*;
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.experimental.FieldDefaults;
 
+import javax.persistence.*;
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@FieldDefaults(level = AccessLevel.PRIVATE)
+@Entity
 public class Connection {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    int id;
     @ManyToOne
     @JoinColumn(name = "user")
-    private User user;
+    User user;
     @ManyToOne
     @JoinColumn(name = "serviceProvider")
-    private ServiceProvider serviceProvider;
+   ServiceProvider serviceProvider;
 
-    public Connection(User user, ServiceProvider serviceProvider) {
-        this.user = user;
-        this.serviceProvider = serviceProvider;
-    }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    public ServiceProvider getServiceProvider() {
-        return serviceProvider;
-    }
-
-    public void setServiceProvider(ServiceProvider serviceProvider) {
-        this.serviceProvider = serviceProvider;
-    }
 }

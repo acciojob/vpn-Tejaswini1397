@@ -1,59 +1,30 @@
 package com.driver.model;
 
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.experimental.FieldDefaults;
+import org.springframework.boot.test.autoconfigure.data.cassandra.DataCassandraTest;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 @Entity
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@FieldDefaults(level = AccessLevel.PRIVATE)
 public class Admin {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    int id;
     @Column(nullable = false, unique = true)
-    private String username;
+     String username;
     @Column(nullable = false)
-    private String password;
+    String password;
     @OneToMany(mappedBy = "serviceProvider",cascade = CascadeType.ALL)
-    private List<ServiceProvider>serviceProviders;
+    List<ServiceProvider>serviceProviders;
 
-    public Admin(String username, String password) {
-        this.username = username;
-        this.password = password;
-       serviceProviders=new ArrayList<>();
-    }
 
-    public Admin() {
-
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public List<ServiceProvider> getProviderList() {
-        return serviceProviders;
-    }
-
-    public void setProviderList(List<ServiceProvider> providerList) {
-        this.serviceProviders = providerList;
-    }
 }

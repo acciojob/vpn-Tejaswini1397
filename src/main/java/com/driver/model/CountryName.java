@@ -17,5 +17,7 @@ public enum CountryName {
         return this.code;
     }
 
-
+    public String getCode() {
+        return code;
+    }
 }
