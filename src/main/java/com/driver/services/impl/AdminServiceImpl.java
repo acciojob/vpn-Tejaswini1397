@@ -37,10 +37,10 @@ public class AdminServiceImpl implements AdminService {
         if(admin!=null){
             ServiceProvider serviceProvider=new ServiceProvider();
             serviceProvider.setName(providerName);
-            List<ServiceProvider> serviceProviderList = admin.getProviderList();
+            List<ServiceProvider> serviceProviderList = admin.getServiceProviders();
             serviceProviderList.add(serviceProvider); // Add the new ServiceProvider to the list
 
-            admin.setProviderList(serviceProviderList); // Update the list in the Admin entity
+            admin.setServiceProviders(serviceProviderList); // Update the list in the Admin entity
             adminRepository1.save(admin);
         }
         return admin;
