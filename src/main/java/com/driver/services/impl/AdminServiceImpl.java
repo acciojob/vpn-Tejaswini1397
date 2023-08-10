@@ -27,8 +27,8 @@ public class AdminServiceImpl implements AdminService {
        Admin admin=new Admin();
        admin.setUsername(username);
        admin.setPassword(password);
-       Admin savedAdmin=adminRepository1.save(admin);
-       return savedAdmin;
+      return adminRepository1.save(admin);
+//       return savedAdmin;
     }
 
     @Override
